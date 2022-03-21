@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import ListCustomers from './customers/ListCustomers';
+import ViewCustomer from './singleCustomer/ViewCustomer';
+import TransferRequest from './transfer/TransferRequest';
 
 function App() {
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<ListCustomers />}></Route>
+          <Route path='show/:id' element={<ViewCustomer />}></Route>
+          <Route path='show/:id_one/transfer/:id_two' element={<TransferRequest />}></Route>
+        </Routes>
+    </BrowserRouter>
     </div>
   );
 }
